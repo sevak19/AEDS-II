@@ -1,0 +1,1 @@
+# Usar pesquisa binaria para diminuir o custo do Insertion sort
