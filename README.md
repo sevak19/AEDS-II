@@ -68,8 +68,8 @@
 ### 1. Configuração Inicial
 #### - Antes de começar a usar o Git, você precisa configurá-lo com seu nome de usuário e e-mail.
 
-      git config --global user.name "Seu Nome"
-      git config --global user.email "seuemail@example.com"
+	git config --global user.name "Seu Nome"
+	git config --global user.email "seuemail@example.com"
 
 #### - (Recomendo) Criar uma pasta projetos para guardar seus repositorios
     mkdir ~/projetos
