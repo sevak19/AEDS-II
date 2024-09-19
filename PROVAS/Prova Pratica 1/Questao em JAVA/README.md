@@ -1,0 +1,1 @@
+![Texto Alternativo](Menor da Pilha.png)

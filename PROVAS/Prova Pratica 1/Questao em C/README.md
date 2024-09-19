@@ -1,0 +1,1 @@
+![Texto Alternativo](Vogais Alienígenas.png)
