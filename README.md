@@ -1,4 +1,4 @@
-# Repositorio destinado a tudo que envolva a materia AEDS-II
+# AEDS-II
 # DICAS
 
 ## 1 DICA - USE WSL
