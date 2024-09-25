@@ -1,6 +1,7 @@
 import java.util.*;
 import java.io.*;
 import java.time.*;
+import java.time.format.DateTimeFormatter;
 
 
 public class Main {
@@ -109,7 +110,8 @@ class Pokemon {
         setIsLegendary(item[counter].equals("1"));
         counter++;
 
-        System.out.println(item[counter]);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        setCaptureDate(LocalDate.parse(item[counter], formatter));
     }
 
     public void setId (int id) {
