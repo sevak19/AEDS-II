@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 
 public class Main {
     public static void main(String[] args) {
-        String path = "pokemon.csv";
+        String path = "/tmp/pokemon.csv";
         ArrayList<Pokemon> pokemons = new ArrayList<Pokemon>();
 
         try {
@@ -17,7 +17,17 @@ public class Main {
         }
         sc.close();
         } catch (Exception e) { System.out.println("error");}
+        
+        Scanner sc = new Scanner(System.in);
 
+        String input = sc.nextLine();
+        while(!input.equals("FIM")) {
+            int number = Integer.parseInt(input);
+            pokemons.get(number - 1).imprimir();
+            input = sc.nextLine();
+        }
+
+        sc.close();
     }
 }
 
@@ -112,6 +122,32 @@ class Pokemon {
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         setCaptureDate(LocalDate.parse(item[counter], formatter));
+    }
+
+    public void imprimir() {
+        System.out.printf("[#" + id + " -> " + name + ": " + description + " - [");
+        int counter = 1;
+        for(String type : types) {
+            if(counter == 1){
+                System.out.printf("'" + type + "'");
+                counter++;
+            }else{
+                System.out.printf(", '" + type + "'");
+            }
+        }
+        System.out.printf("] - [");
+        counter = 1;
+        for(String abilitie : abilities) {
+            if(counter == 1){
+                System.out.printf("'" + abilitie + "'");
+                counter++;
+            }else{
+                System.out.printf(", '" + abilitie + "'");
+            }
+        }
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        System.out.printf("] - " + weight + "kg - " + height + "m - " + captureRate + "%% - " + isLegendary + " - " + generation + " gen] - " + captureDate.format(formatter));
+        System.out.println();
     }
 
     public void setId (int id) {
