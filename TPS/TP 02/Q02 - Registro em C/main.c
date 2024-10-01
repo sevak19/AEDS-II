@@ -96,7 +96,7 @@ void ler(Pokemon pokedex[NUM_POKEMONS]) {
     int counter = 0;
     while (fgets(line, sizeof(line), file) != NULL) {
         int id, generation, captureRate, dia, mes, ano;
-        char name[50] = "NULL", description[50] = "NULL";
+        char name[50] = "", description[50] = "NULL";
         char types[2][50], abilities[10][50];
         char auxiliar[10];
         double weight, height;
