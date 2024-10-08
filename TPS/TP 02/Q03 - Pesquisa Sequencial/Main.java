@@ -6,6 +6,7 @@ import java.time.format.DateTimeFormatter;
 
 public class Main {
     public static void main(String[] args) {
+        long start = System.nanoTime();
         String path = "/tmp/pokemon.csv";
         ArrayList<Pokemon> pokemons = new ArrayList<Pokemon>();
 
@@ -29,18 +30,33 @@ public class Main {
         }
         input = sc.nextLine();
         boolean encontrou;
+        int comp = 0;
         while(!input.equals("FIM")) {
             encontrou = false;
             for(Pokemon pkmn : entrada) {
+                comp++;
                 if(pkmn.getName().equals(input)){
                     System.out.println("SIM");
                     encontrou = true;
                 }
             }
+            comp++;
             if(encontrou == false) {
                 System.out.println("NAO");
             }
             input = sc.nextLine();
+        }
+
+        long end = System.nanoTime();
+
+        double executionTime = (end - start);
+
+        String conteudo = "1509171" + "\t" + executionTime + "\t" + comp;
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("1509171_sequencial.txt"))) {
+            writer.write(conteudo);
+        } catch (IOException e) {
+            System.err.println("Erro ao escrever no arquivo: " + e.getMessage());
         }
 
         sc.close();
