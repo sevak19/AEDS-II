@@ -45,7 +45,7 @@ public class Main {
 
         String conteudo = "1509171" + "\t" + comp + "comp\t" + mov + "mov\t" + executionTime + "ms";
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("1509171_heapsort.txt"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("1509171_countingsort.txt"))) {
             writer.write(conteudo);
         } catch (IOException e) {
             System.err.println("Erro ao escrever no arquivo: " + e.getMessage());
