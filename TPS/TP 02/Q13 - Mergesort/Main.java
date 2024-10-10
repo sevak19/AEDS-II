@@ -32,7 +32,7 @@ public class Main {
 
         long start = System.nanoTime();
 
-        sort(entrada);
+        Sort.sort(entrada);
 
         long end = System.nanoTime();
 
@@ -53,82 +53,79 @@ public class Main {
 
         sc.close();
     }
-    
+}
+
+class Sort {
     public static void sort(ArrayList<Pokemon> lista) {
-        mergesort(0, lista.size()-1, lista);
+        mergesort(0, lista.size() - 1, lista);
     }
 
-    public static void mergesort(int esq, int dir, ArrayList<Pokemon> lista) {
-        if (esq < dir){
-           int meio = (esq + dir) / 2;
-           mergesort(esq, meio, lista);
-           mergesort(meio + 1, dir, lista);
-           intercalar(esq, meio, dir, lista);
+    private static void mergesort(int esq, int dir, ArrayList<Pokemon> lista) {
+        if (esq < dir) {
+            int meio = (esq + dir) / 2;
+            mergesort(esq, meio, lista);
+            mergesort(meio + 1, dir, lista);
+            intercalar(esq, meio, dir, lista);
         }
-     }
+    }
 
-     public static void intercalar(int esq, int meio, int dir, ArrayList<Pokemon> lista){
-        //Definir tamanho dos dois subarrays
-        int n1 = meio-esq+1;
+    private static void intercalar(int esq, int meio, int dir, ArrayList<Pokemon> lista) {
+        int n1 = meio - esq + 1;
         int n2 = dir - meio;
 
-        ArrayList<Pokemon> a1 = new  ArrayList<>(n1+1);
-        ArrayList<Pokemon> a2 = new  ArrayList<>(n2+1);
-  
-        //Inicializar primeiro subarray
-        for(int i = 0; i < n1; i++){
-           a1.add(lista.get(esq+i));
+        ArrayList<Pokemon> a1 = new ArrayList<>(n1 + 1);
+        ArrayList<Pokemon> a2 = new ArrayList<>(n2 + 1);
+
+        for (int i = 0; i < n1; i++) {
+            a1.add(lista.get(esq + i));
         }
-  
-        //Inicializar segundo subarray
-        for(int j = 0; j < n2; j++){
-           a2.add(lista.get(meio+j+1));
+
+        for (int j = 0; j < n2; j++) {
+            a2.add(lista.get(meio + j + 1));
         }
-  
-        //Intercalacao propriamente dita
+
         int i = 0, j = 0, k = esq;
         while (i < n1 && j < n2) {
             int compareFirstType = a1.get(i).getType(0).compareTo(a2.get(j).getType(0));
-            comp++;
-            
+            Main.comp++;
+
             if (compareFirstType < 0) {
                 lista.set(k, a1.get(i));
                 i++;
-                mov++;
+                Main.mov++;
             } else if (compareFirstType == 0) {
-                comp++;
+                Main.comp++;
                 if (a1.get(i).getName().compareTo(a2.get(j).getName()) <= 0) {
                     lista.set(k, a1.get(i));
                     i++;
-                    mov++;
+                    Main.mov++;
                 } else {
                     lista.set(k, a2.get(j));
                     j++;
-                    mov++;
+                    Main.mov++;
                 }
             } else {
                 lista.set(k, a2.get(j));
                 j++;
-                mov++;
+                Main.mov++;
             }
             k++;
         }
-        // Copiar o restante dos elementos de a1, se houver
+
         while (i < n1) {
             lista.set(k, a1.get(i));
             i++;
             k++;
-            mov++;
+            Main.mov++;
         }
 
-        // Copiar o restante dos elementos de a2, se houver
         while (j < n2) {
             lista.set(k, a2.get(j));
             j++;
             k++;
-            mov++;
+            Main.mov++;
         }
-     }
+    }
 }
 
 class Pokemon {
