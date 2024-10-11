@@ -35,6 +35,7 @@ Pokemon clone(Pokemon* pokemon);
 
 void sort(Pokemon *array, int n);
 void selecaoRec(Pokemon *array, int n, int index);
+int acharMenor(Pokemon *array, int n, int index, int menor);
 void swap(int A, int B, Pokemon *array);
 
 int getId(Pokemon* pokemon);
@@ -118,16 +119,22 @@ void selecaoRec(Pokemon *array, int n, int index){
     }
     
     int menor = index;
-    for (int j = (index + 1); j < n; j++){
-        comp++;
-        if (strcmp(getName(&array[menor]), getName(&array[j])) > 0){
-            menor = j;
-        }
-    }
+    menor = acharMenor(array, n, index+1, menor);
+
     if(menor != index) {
         swap(menor, index, array);
     }
     selecaoRec(array, n, index+1);
+}
+int acharMenor(Pokemon *array, int n, int index, int menor) {
+    if(index == n) {
+        return menor;
+    }
+    comp++;
+    if (strcmp(getName(&array[menor]), getName(&array[index])) > 0){
+        menor = index;
+    }
+    acharMenor(array, n, index+1, menor);
 }
 void swap(int A, int B, Pokemon *array){
     Pokemon temp = array[A];
