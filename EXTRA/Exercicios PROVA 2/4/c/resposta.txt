@@ -1,0 +1,4 @@
+VERDADEIRO
+c é o endereço de b.
+&c é o endereço de c.
+*c é o endereço de a.

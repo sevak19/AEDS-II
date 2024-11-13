@@ -1,0 +1,3 @@
+VERDADEIRO, não é possivel desenhar uma árvore binaria de busca tendo
+apenas o caminhamento em Pos-ordem fornecido devido a nos maiores que 
+sua raiz localizados a sua esquerda e vice versa.

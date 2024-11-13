@@ -1,0 +1,3 @@
+FALSO
+A célula cabeça facilita a implementação e manutenção do código, porém
+não altera a complexidade nas operacoes de inserir e remover do inicio.

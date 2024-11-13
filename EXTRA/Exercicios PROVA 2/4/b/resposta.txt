@@ -1,0 +1,4 @@
+VERDADEIRO
+Os algoritmos Merge Sort e Heap Sort sao algoritmos de divisão e conquista e
+tem sua complexidade sempre, em todos os casos (n log n), diferentemente do quicksort,
+que caso o pivo seja um extremo (menor ou maior elemento do array), tem sua complexidade quadratica.
