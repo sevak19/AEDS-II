@@ -112,7 +112,7 @@ int main () {
 
     mostrar(&lista);
 
-    FILE *arquivo = fopen("1509171_quicksort2.txt.", "w");
+    FILE *arquivo = fopen("1509171_quicksort2.txt", "w");
     if (arquivo == NULL) {
         perror("Erro ao abrir o arquivo");
         return 1;
